@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery弹出层效果</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <input id="Button1" type="button" value="点击弹出层" onclick="ShowDiv('MyDiv','fade')" />
+    <!--弹出层时背景层DIV-->
+    <div id="fade" class="black_overlay">
+    </div>
+    <div id="MyDiv" class="white_content">
+        <div style="text-align: right; cursor: default; height: 40px;" id="move">
+            <span style="font-size: 16px;" onclick="CloseDiv('MyDiv','fade')">关闭</span>
+        </div>
+        目前来说，我还是喜欢这个自己改造的弹出层。自己在项目中也用的是这个。
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
