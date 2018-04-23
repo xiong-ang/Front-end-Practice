@@ -36,10 +36,17 @@
                         </span>
                     </div>
                 </div>
-                
-                <div class="col-lg-8 col-lg-offset-2">
-                    <ul>
-                        <li ng-repeat="item in repos">{{item}}</li>
+
+                <hr/><hr/>
+
+                <div class="col-lg-10 col-lg-offset-1">
+                    <ul class="list-unstyled">
+                        <li ng-repeat="item in repos">
+                            <p class="glyphicon glyphicon-star"/>
+                            {{item.starCount}}
+                            &nbsp;
+                            {{item.name}}
+                        </li>
                     </ul>
                 </div>
             </div>
