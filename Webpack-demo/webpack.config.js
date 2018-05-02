@@ -1,20 +1,22 @@
-// 一个常见的`webpack`配置文件
-const webpack = require('webpack');
+
+//HTML webpack plugin 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+//CSS webpack plugin
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    context: __dirname,
-    entry: __dirname+"/src/app.js",
-    output: {
-        path: __dirname+"/dist/",
-        filename: "bundle-[hash].js"
+    context: __dirname,                     //Context
+    entry: __dirname+"/src/app.js",         //Entry：Should include all js and css            
+    output: {                               //Output: path file publicpath
+        path: __dirname+"/dist/",           
+        filename: "bundle-[hash].js"        //[name] [hash] [chunkhash]
     },
-    devtool: 'none',
-    devServer: {
-        contentBase: __dirname+"/dist", //本地服务器所加载的页面所在的目录
-        historyApiFallback: true, //不跳转
-        inline: true,
+    devtool: 'none',                        //source map
+    devServer: {                            //web-dev-server config
+        contentBase: __dirname+"/dist", 
+        port:9090,             
+        inline: true,                       //iframe  ---embed in ifram; inline  ---bundle server entry in bundle
         hot: true
     },
     module: {
@@ -28,6 +30,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                //css-loader Process url; style-loader insert css to style
                 use: ExtractTextPlugin.extract({
                   fallback: "style-loader",
                   use: "css-loader"
@@ -36,9 +39,11 @@ module.exports = {
         ]
 },
     plugins: [
+        //HTML Webpack
         new HtmlWebpackPlugin({
             template:__dirname+"/src/index.html"
         }),
-        new ExtractTextPlugin("style.css")
+        //Extract css from entry file and save to specialed file
+        new ExtractTextPlugin("style-[hash].css")
     ]
 };
