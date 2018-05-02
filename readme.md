@@ -3,3 +3,6 @@
 
 # Webpack-demo             
 演示了webpack的基本配置             
+
+# Karma-demo             
+演示Karma的基本配置和使用                 
